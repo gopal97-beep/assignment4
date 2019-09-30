@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+
+    <h1 style="font-family: 'Times New Roman', Times, serif">Stock Manager</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+    <div class="form-group">
+    <label>id</label>
+    <input type="number" class="form-control" id="t1" value="1" /><br>
+    <label>Code</label>
+    <input type="text" class="form-control" id="t2" /><br>
+    <label>Quantity</label>
+    <input type="number" class="form-control" id="t3" /><br>
+    <label>price</label>
+    <input type="number"  class="form-control"id="t4" /><br>
+    
+    <button type="submit" onclick="p1()">add new row</button>
+    </div>
+</div> 
+   <div class="col-md-9">
+    <section>
+    <table border="1">
+            <thead>
+                <th>ID</th>
+                <th>CODE</th>
+                <th>
+                    QUANTITY
+    
+                </th>
+                <th>PRICE</th>
+                <th>Total cost</th>
+            </thead>
+            <tbody id="y1">
+            
+               
+            </tbody>
+        </table>
+    </section>
+        <div><p id="y2"></p></div>
+    </div>
+ </div>  
+</div>
+        
+    <script>
+         var g1=new Array();
+         var tc=0;
+         var id1=1;
+         var g2=new Array();
+         
+         
+        function p1(){
+            var n1=document.getElementById("t3").value;
+            var n2=document.getElementById("t4").value;
+            var tt=n1*n2;
+            id1++;
+            
+           
+           
+            g1+="<tr><td>"+Number(document.getElementById("t1").value)+"</td><td>"+String(document.getElementById("t2").value)+"</td><td>"+Number(document.getElementById("t3").value)+"</td><td>"+String(document.getElementById("t4").value)+"</td><td>"+tt+"</td></tr>";
+            document.getElementById("y1").innerHTML=g1;
+           tc+=tt;
+           document.getElementById("y2").innerHTML="total cost: "+tc;
+           document.getElementById("t1").value=id1;
+           document.getElementById("t2").value="";
+           document.getElementById("t3").value="";
+           document.getElementById("t4").value="";
+           g2=g1;
+
+           
+            
+           
+            
+console.log(tc);
+        }
+        function p2(){
+            var n1=document.getElementById("t3").value;
+            var n2=document.getElementById("t4").value;
+            var tt=n1*n2;
+            //if(document.getElementById("t2").value==""||document.getElementById("t2").value==""||document.getElementById("t3").value=="")
+            //g2="<tr><td colspan="+"5"+">Not items yet</td></tr>";
+            //else //if(document.getElementById("t2").value!=""&&document.getElementById("t2").value!=""&&document.getElementById("t3").value!="")
+             
+            document.getElementById("y3").innerHTML=g2;
+            console.log(g2);
+
+        }
+    
+    </script>
+    <div>
+        <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+        place order
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delivery Address</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                  <label>line1</label>
+                  <input type="text" class="form-control"/>
+                  <label>line2</label>
+                  <input type="text" class="form-control"/>
+                  <label>line3</label>
+                  <input type="text" class="form-control"/>
+                  <label>phone</label>
+                  <input type="text" class="form-control"/>
+                  <label>zip</label>
+                  <input type="text" class="form-control"/>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="p2()">
+        View invoice
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Invoice</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div style="background-color: green;">
+                    <section>
+                            <table border="1">
+                                    <thead>
+                                        <th>ID</th>
+                                        <th>CODE</th>
+                                        <th>
+                                            QUANTITY
+                            
+                                        </th>
+                                        <th>PRICE</th>
+                                        <th>Total cost</th>
+                                    </thead>
+                                    <tbody id="y3">
+                                   
+                                       
+                                    </tbody>
+                                </table>
+                            </section>
+            
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    
+</body>
+</html>
